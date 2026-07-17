@@ -1,8 +1,29 @@
 # Deploying to Cloudflare Pages
 
 This site is a **static export** (`output: "export"` in `next.config.mjs`) — `npm run
-build` produces a fully static `out/` folder with no server. That deploys directly to
-**Cloudflare Pages**; no SSR adapter (`@cloudflare/next-on-pages`) is needed.
+build` produces a fully static `out/` folder with no server. No SSR adapter
+(`@cloudflare/next-on-pages` / OpenNext) is needed. Deploy it either way below.
+
+> **If `wrangler deploy` fails with** *"The version of Next.js … cannot be automatically
+> configured … update to at least 14.2.35"*: that's wrangler trying to build a **server**
+> Worker from Next.js. This site is static, so `wrangler.jsonc` (in this repo) tells
+> wrangler to deploy `./out` as **static assets** instead — which skips the adapter
+> entirely. No Next.js upgrade required. Make sure the build command is `npm run build`
+> so `./out` exists before deploy.
+
+## Option 1 — Cloudflare Workers (static assets, what this repo is configured for)
+
+The repo ships a **`wrangler.jsonc`** that serves `./out` as static assets:
+
+- **Build command:** `npm run build`
+- **Deploy command:** `npx wrangler deploy` (reads `wrangler.jsonc` → uploads `./out`)
+- **Worker name:** `tcpengwebsite` (matches the config; change both if you rename)
+- No `main` Worker script — assets-only, so nothing runs server-side.
+
+`html_handling: auto-trailing-slash` + `not_found_handling: 404-page` give clean URLs
+and serve the exported `404.html` for unknown paths.
+
+## Option 2 — Cloudflare Pages
 
 ## One-time setup (Cloudflare dashboard → git integration)
 

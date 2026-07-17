@@ -1,0 +1,18 @@
+{
+  // Cloudflare Workers static-assets deploy for the Next.js STATIC export.
+  // `npm run build` (output: "export") produces ./out; this serves it directly.
+  //
+  // Why this file exists: without it, `wrangler deploy` auto-detects Next.js and
+  // tries to build a *server* Worker via the OpenNext adapter, which fails on
+  // Next < 14.2.35. This site is fully static, so we deploy ./out as assets and
+  // skip the adapter entirely (no `main` Worker script needed).
+  "name": "tcpengwebsite",
+  "compatibility_date": "2025-06-01",
+  "assets": {
+    "directory": "./out",
+    // Clean URLs from trailingSlash:true → serve /about/index.html for /about/,
+    // and the exported 404.html for unknown paths.
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
