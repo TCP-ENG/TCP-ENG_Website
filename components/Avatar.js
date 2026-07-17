@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-// Headshot avatar. Renders /public/headshot.jpg when present; if the file is
+// Headshot avatar. Renders /public/headshot.webp when present; if the file is
 // missing it gracefully falls back to the SVG placeholder behind it.
 export default function Avatar({ size = 220, className = "" }) {
   const [showPhoto, setShowPhoto] = useState(true);
@@ -37,8 +37,10 @@ export default function Avatar({ size = 220, className = "" }) {
         // eslint-disable-next-line @next/next/no-img-element
         <img
           ref={imgRef}
-          src="/headshot.jpg"
+          src="/headshot.webp"
           alt="Travis Priest"
+          width={size}
+          height={size}
           className="absolute inset-0 h-full w-full object-cover"
           style={{ objectPosition: "center" }}
           onError={() => setShowPhoto(false)}

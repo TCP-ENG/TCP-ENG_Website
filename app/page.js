@@ -12,7 +12,7 @@ export const metadata = {
   // "%s | TCP ENG" template used by inner pages).
   title: { absolute: "TCP ENG — Engineering Reliable Embedded Solutions" },
   description:
-    "TCP ENG (Travis Priest) designs custom embedded systems, firmware, and PCBs from concept to production — STM32/ESP32 firmware, PCB design, wireless & IoT, and hardware bring-up. 20+ years of embedded engineering, based in Florida and available for contract and consulting work.",
+    "Custom embedded systems, firmware, and PCB design from concept to production. 20+ years across automotive, industrial, HVAC, marine, IoT, and power electronics.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "TCP ENG — Engineering Reliable Embedded Solutions",
