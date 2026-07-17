@@ -6,7 +6,7 @@ import { services } from "@/lib/site";
 export const metadata = {
   title: "Services",
   description:
-    "Embedded firmware, PCB design, wireless & IoT, hardware bring-up, development tooling, and engineering consulting from TCP ENG.",
+    "Embedded firmware, PCB design & prototyping, 3D printing, wireless & IoT, hardware bring-up, and engineering consulting from TCP ENG.",
 };
 
 export default function ServicesPage() {

@@ -7,6 +7,22 @@ import CTASection from "@/components/CTASection";
 import { ArrowRight, Download, Mail, MapPin, LinkedIn, GitHub, iconMap } from "@/components/Icons";
 import { site, services, projects, showProjects } from "@/lib/site";
 
+export const metadata = {
+  // Absolute title keeps the full brand headline on the home page (bypasses the
+  // "%s | TCP ENG" template used by inner pages).
+  title: { absolute: "TCP ENG — Engineering Reliable Embedded Solutions" },
+  description:
+    "TCP ENG (Travis Priest) designs custom embedded systems, firmware, and PCBs from concept to production — STM32/ESP32 firmware, PCB design, wireless & IoT, and hardware bring-up. 20+ years of embedded engineering, based in Florida and available for contract and consulting work.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "TCP ENG — Engineering Reliable Embedded Solutions",
+    description:
+      "Custom embedded systems, firmware development, and PCB design from concept to production. 20+ years of embedded engineering.",
+    type: "website",
+    locale: "en_US",
+  },
+};
+
 export default function HomePage() {
   return (
     <>
