@@ -1,0 +1,30 @@
+# Cloudflare Pages headers — https://developers.cloudflare.com/pages/configuration/headers/
+# Lives in /public so `next build` copies it to the export root (out/_headers).
+
+# Content-hashed Next.js assets never change — cache them forever.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Static media: cache a week.
+/*.webp
+  Cache-Control: public, max-age=604800
+/*.png
+  Cache-Control: public, max-age=604800
+/*.ico
+  Cache-Control: public, max-age=604800
+
+# Resume PDF: cache a day.
+/*.pdf
+  Cache-Control: public, max-age=86400
+
+# Security headers on every response.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  X-DNS-Prefetch-Control: on
+  # Optional Content-Security-Policy. Enable after confirming Google Fonts and the
+  # Formspree contact form still work in the browser; loosen a directive if the
+  # console reports a violation.
+  # Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; form-action https://formspree.io; frame-ancestors 'none'; base-uri 'self'
