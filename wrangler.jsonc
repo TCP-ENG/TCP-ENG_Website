@@ -6,7 +6,7 @@
   // tries to build a *server* Worker via the OpenNext adapter, which fails on
   // Next < 14.2.35. This site is fully static, so we deploy ./out as assets and
   // skip the adapter entirely (no `main` Worker script needed).
-  "name": "tcpengwebsite",
+  "name": "tcpeng2",
   "compatibility_date": "2025-06-01",
   "assets": {
     "directory": "./out",
